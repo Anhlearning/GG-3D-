@@ -8,6 +8,7 @@ public abstract class BehaviorTree: MonoBehaviour
 
     BlackBoard blackBoard =new BlackBoard();
 
+    BehaviorTreeInterface behaviorTreeInterface;
     
     
     public BlackBoard BlackBoard{
@@ -15,6 +16,7 @@ public abstract class BehaviorTree: MonoBehaviour
     }
     void Start()
     {
+        behaviorTreeInterface=GetComponent<BehaviorTreeInterface>();
         ConstructorTree(out RootNode);
         SortTree();
     }

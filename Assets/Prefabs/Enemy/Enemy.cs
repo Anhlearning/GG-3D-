@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour ,BehaviorTreeInterface
 {
     [SerializeField] HealthComponents healthComponents;
     [SerializeField] Animator animator;
@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] PerceptionComp perceptionComp;
 
     [SerializeField] BehaviorTree behaviorTree;
-    
+    [SerializeField] MovementComponent movementComponent;
     private void Start() {
         healthComponents.onHealEmpty+=StartDeath;
         healthComponents.onTakeDamage+=TakenDamage;
@@ -50,5 +50,12 @@ public class Enemy : MonoBehaviour
 
             Gizmos.DrawLine(transform.position+Vector3.up,drawTargetPos);
         }
+    }
+    public void RorateTowards(GameObject target,bool verticalAim=false){
+        Vector3 Aimdir=target.transform.position - transform.position;
+        Aimdir.y=verticalAim ? Aimdir.y : 0;
+        Aimdir=Aimdir.normalized;
+        
+        movementComponent.RotateTowards(Aimdir);
     }
 }

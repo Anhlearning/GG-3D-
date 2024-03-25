@@ -14,9 +14,9 @@ public class Player : MonoBehaviour
     [Header("InventoryComponent")]
     [SerializeField] InventoryComponent inventoryComponent;
 
+    [SerializeField] MovementComponent movementComponent;
     [SerializeField]float MoveSpeed=20f;
     [SerializeField] float animTurnSpeed=20f;
-    [SerializeField] float turnSpeed=20f;
     CameraController cameraController;
     Camera mainCam;
     Animator animator;
@@ -103,21 +103,8 @@ public class Player : MonoBehaviour
     private void RotateTowards(Vector3 AimDir)
     {   
 
-        float currentTurnSpeed=0;    
-        if (AimDir.magnitude != 0)
-        {
-            Quaternion preVot=transform.rotation;
-
-            float turnLerpAlpha = Time.deltaTime * turnSpeed;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(AimDir, Vector3.up), turnLerpAlpha);
-            Quaternion currentRot=transform.rotation;
-            
-            float Dir=Vector3.Dot(AimDir,transform.right) >0 ? 1 :-1;
-
-            float rotationDelta=Quaternion.Angle(preVot,currentRot)*Dir;
-
-            currentTurnSpeed=rotationDelta/Time.deltaTime;
-        }
+        float currentTurnSpeed=movementComponent.RotateTowards(AimDir);
+        
         animatorTurnSpeed=Mathf.Lerp(animatorTurnSpeed,currentTurnSpeed,Time.deltaTime*animTurnSpeed);
 
         animator.SetFloat("turnSpeed",animatorTurnSpeed);

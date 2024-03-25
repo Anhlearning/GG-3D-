@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7948200825274258639}
   - component: {fileID: 5031849143276854047}
   - component: {fileID: 5756732686609250047}
+  - component: {fileID: 5301360868738681248}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 7395915994953674524}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6822890805113532186
 CharacterController:
@@ -57,7 +58,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.62
+  m_Height: 2.48
   m_Radius: 0.38
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -80,6 +81,7 @@ MonoBehaviour:
   AimStick: {fileID: 0}
   characterController: {fileID: 6822890805113532186}
   inventoryComponent: {fileID: 7948200825274258639}
+  movementComponent: {fileID: 5301360868738681248}
   MoveSpeed: 5
   animTurnSpeed: 15
   turnSpeed: 8
@@ -147,6 +149,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1e9eb75e5d93045a93613e0973f46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5301360868738681248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585002552708093279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca83e29d9930524459b74eabdbddf2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 8
 --- !u!1 &2450538596387217813
 GameObject:
   m_ObjectHideFlags: 0
