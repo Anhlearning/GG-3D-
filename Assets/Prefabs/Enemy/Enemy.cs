@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
            behaviorTree.BlackBoard.SetOrAddData("target",target);
         }
         else{
+            behaviorTree.BlackBoard.SetOrAddData("LastSeenLoc",target.transform.position);
             behaviorTree.BlackBoard.RemoveBlackBoardData("target");
         }
     }

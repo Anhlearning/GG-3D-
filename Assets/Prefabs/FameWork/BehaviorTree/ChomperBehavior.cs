@@ -8,20 +8,37 @@ public class ChomperBehavior : BehaviorTree
     {   
         Selector RootSelector = new Selector();
 
+        #region attackTarget
         Sequencer attackTargetSeq=new Sequencer();
-
         BTTask_MoveToTarget moveToTarget=new BTTask_MoveToTarget(this,"target",2f);
-
         attackTargetSeq.AddChildren(moveToTarget);
-
         BlackboardDecorator attackTargetDecorator=new BlackboardDecorator(this,
-        attackTargetSeq,"target",
-        BlackboardDecorator.RunCondition.KeyExists,
-        BlackboardDecorator.NotifyRule.RunConditionChange,
-        BlackboardDecorator.NotifiAbort.both);
+                                                                                attackTargetSeq,"target",
+                                                                                BlackboardDecorator.RunCondition.KeyExists,
+                                                                                BlackboardDecorator.NotifyRule.RunConditionChange,
+                                                                                BlackboardDecorator.NotifiAbort.both);
 
         RootSelector.AddChildren(attackTargetDecorator);
+        #endregion attackTarget
+        
+        #region CheckLastSeenLocation
+        Sequencer CheckLastSeenLoSeq= new Sequencer();
+        BTTask_MoveLoc MovetoLastSeenLoc=new BTTask_MoveLoc(this,"LastSeenLoc",3);
+        BTTask_Wait WaitLastSeenLoc=new BTTask_Wait(2f);
+        BTTask_RemoveBlackBoardData removeLastSeenLoc=new BTTask_RemoveBlackBoardData(this,"LastSeenLoc");
+        CheckLastSeenLoSeq.AddChildren(MovetoLastSeenLoc);
+        CheckLastSeenLoSeq.AddChildren(WaitLastSeenLoc);
+        CheckLastSeenLoSeq.AddChildren(removeLastSeenLoc);
 
+        BlackboardDecorator checkLastSeenLoDecorator=new BlackboardDecorator(this,CheckLastSeenLoSeq,"LastSeenLoc",
+                                                                                  BlackboardDecorator.RunCondition.KeyExists,
+                                                                                  BlackboardDecorator.NotifyRule.RunConditionChange,
+                                                                                  BlackboardDecorator.NotifiAbort.none);
+        
+        RootSelector.AddChildren(checkLastSeenLoDecorator);
+        #endregion CheckLastSeenLocation
+        
+        #region  patrollingSeq
         Sequencer patrollingSeq=new Sequencer();
 
         BTTask_GetNextPatrolPoint getNextPatrolPoint=new BTTask_GetNextPatrolPoint(this,"patrolPoints");
@@ -32,7 +49,7 @@ public class ChomperBehavior : BehaviorTree
         patrollingSeq.AddChildren(moveTopatrolPoint);
         
         RootSelector.AddChildren(patrollingSeq);
-
+        #endregion patrollingSeq
         node=RootSelector;
     }
 }

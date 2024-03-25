@@ -35,6 +35,6 @@ public class BlackBoard
 
     public void RemoveBlackBoardData(string key){
         blackBoardData.Remove(key);
-       onBlackBroadValueChange?.Invoke(key,null);
+        onBlackBroadValueChange?.Invoke(key,null);
     }
 }
