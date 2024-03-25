@@ -11,7 +11,9 @@ public class ChomperBehavior : BehaviorTree
         #region attackTarget
         Sequencer attackTargetSeq=new Sequencer();
         BTTask_MoveToTarget moveToTarget=new BTTask_MoveToTarget(this,"target",2f);
+        BTTask_RotareTowardTarget rotareTowardTarget =new BTTask_RotareTowardTarget(this,"target",10f);
         attackTargetSeq.AddChildren(moveToTarget);
+        attackTargetSeq.AddChildren(rotareTowardTarget);
         BlackboardDecorator attackTargetDecorator=new BlackboardDecorator(this,
                                                                                 attackTargetSeq,"target",
                                                                                 BlackboardDecorator.RunCondition.KeyExists,
@@ -21,6 +23,10 @@ public class ChomperBehavior : BehaviorTree
         RootSelector.AddChildren(attackTargetDecorator);
         #endregion attackTarget
         
+        
+
+
+
         #region CheckLastSeenLocation
         Sequencer CheckLastSeenLoSeq= new Sequencer();
         BTTask_MoveLoc MovetoLastSeenLoc=new BTTask_MoveLoc(this,"LastSeenLoc",3);
