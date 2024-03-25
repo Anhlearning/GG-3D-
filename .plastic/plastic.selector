@@ -1,0 +1,4 @@
+repository "Exterminator Game@dinhhoanganhqt1601@cloud"
+  path "/"
+    br "/main"
+    co "/main"
