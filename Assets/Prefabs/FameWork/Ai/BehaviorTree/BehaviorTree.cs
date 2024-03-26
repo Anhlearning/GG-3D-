@@ -17,7 +17,6 @@ public abstract class BehaviorTree: MonoBehaviour
     void Start()
     {
         behaviorTreeInterface=GetComponent<BehaviorTreeInterface>();
-        Debug.Log($"{behaviorTreeInterface}");
         ConstructorTree(out RootNode);
         SortTree();
     }

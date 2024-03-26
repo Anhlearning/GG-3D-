@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour ,BehaviorTreeInterface
+public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface
 {
     [SerializeField] HealthComponents healthComponents;
     [SerializeField] Animator animator;
@@ -12,6 +12,15 @@ public class Enemy : MonoBehaviour ,BehaviorTreeInterface
 
     [SerializeField] BehaviorTree behaviorTree;
     [SerializeField] MovementComponent movementComponent;
+
+    public Animator Animator{
+        get{
+            return animator;
+        }
+        set{
+            animator=value;
+        }
+    }
     private void Start() {
         healthComponents.onHealEmpty+=StartDeath;
         healthComponents.onTakeDamage+=TakenDamage;
@@ -40,7 +49,6 @@ public class Enemy : MonoBehaviour ,BehaviorTreeInterface
     }
     public void OnDeathAnimationFinish(){
         Destroy(gameObject);
-        
     }
     private void OnDrawGizmos() {
         if(behaviorTree && behaviorTree.BlackBoard.GetBlackboardData("target",out GameObject target)){
@@ -57,5 +65,8 @@ public class Enemy : MonoBehaviour ,BehaviorTreeInterface
         Aimdir=Aimdir.normalized;
         
         movementComponent.RotateTowards(Aimdir);
+    }
+    public virtual void attackTarget(GameObject target){
+        
     }
 }
