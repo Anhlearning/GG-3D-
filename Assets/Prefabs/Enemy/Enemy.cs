@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface
+public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
 {
     [SerializeField] HealthComponents healthComponents;
     [SerializeField] Animator animator;
@@ -12,7 +12,13 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface
 
     [SerializeField] BehaviorTree behaviorTree;
     [SerializeField] MovementComponent movementComponent;
+    [SerializeField] int teamID=2;
 
+    Vector3 previousLoc;
+
+    public int GetTeamID(){
+        return teamID;
+    }
     public Animator Animator{
         get{
             return animator;
@@ -25,7 +31,20 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface
         healthComponents.onHealEmpty+=StartDeath;
         healthComponents.onTakeDamage+=TakenDamage;
         perceptionComp.onPerceptionTargetChanged+=targetChanged;
+        previousLoc=transform.position;
     }
+    private void Update() {
+        Calculate();
+    }
+
+    private void Calculate(){
+        Vector3 PosDelta=transform.position-previousLoc;
+        float speed=PosDelta.magnitude/Time.deltaTime;
+
+        animator.SetFloat("Speed",speed);
+        previousLoc=transform.position;
+    }
+
     public void targetChanged(GameObject target,bool sensed){
         if(sensed){
            behaviorTree.BlackBoard.SetOrAddData("target",target);

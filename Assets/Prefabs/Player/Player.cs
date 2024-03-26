@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,ItemInterface
 {
     [SerializeField]Joystick MoveStick;
     [SerializeField]Joystick AimStick;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] InventoryComponent inventoryComponent;
 
     [SerializeField] MovementComponent movementComponent;
+    [SerializeField] int teamID=1;
     [SerializeField]float MoveSpeed=20f;
     [SerializeField] float animTurnSpeed=20f;
     CameraController cameraController;
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour
     Animator animator;
 
     float animatorTurnSpeed=0;
+
+    public int GetTeamID(){
+        return teamID;
+    }
     
     void Start()
     {
