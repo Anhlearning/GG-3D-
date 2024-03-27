@@ -27,7 +27,7 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
             animator=value;
         }
     }
-    private void Start() {
+    protected virtual void Start() {
         healthComponents.onHealEmpty+=StartDeath;
         healthComponents.onTakeDamage+=TakenDamage;
         perceptionComp.onPerceptionTargetChanged+=targetChanged;

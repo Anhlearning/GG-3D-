@@ -10,7 +10,7 @@ public class ChomperBehavior : BehaviorTree
 
         #region attackTarget
         Sequencer attackTargetSeq=new Sequencer();
-        BTTask_MoveToTarget moveToTarget=new BTTask_MoveToTarget(this,"target",2f);
+        BTTask_MoveToTarget moveToTarget=new BTTask_MoveToTarget(this,"target",1.5f);
         BTTask_RotareTowardTarget rotareTowardTarget =new BTTask_RotareTowardTarget(this,"target",10f);
         BTTask_AttackTarget attackTarget=new BTTask_AttackTarget(this,"target");
         attackTargetSeq.AddChildren(moveToTarget);
