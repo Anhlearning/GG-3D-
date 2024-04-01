@@ -14,6 +14,9 @@ public class Player : MonoBehaviour,ItemInterface
     [Header("InventoryComponent")]
     [SerializeField] InventoryComponent inventoryComponent;
 
+    [Header("HealthDamage")]
+    [SerializeField] HealthComponents healthComponents;
+    [SerializeField] PlayerHealthBar healthBar;
     [SerializeField] MovementComponent movementComponent;
     [SerializeField] int teamID=1;
     [SerializeField]float MoveSpeed=20f;
@@ -36,6 +39,11 @@ public class Player : MonoBehaviour,ItemInterface
         AimStick.onstickTaped+=StartswitchWeapon;
         mainCam=Camera.main; 
         cameraController=FindObjectOfType<CameraController>();
+        healthComponents.onHealthChange+=HealthChange;
+        healthComponents.BroadcastHealthValueImeidately();
+    }
+    public void HealthChange(float healt,float delta,float maxHealth){
+        healthBar.UpdateHealth(healt,delta,maxHealth);
     }
     private void Update()
     {
