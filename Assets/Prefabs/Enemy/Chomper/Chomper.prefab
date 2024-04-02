@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 1697081961580211088}
   - component: {fileID: 1659305967716407989}
   - component: {fileID: 2056139424035698048}
+  - component: {fileID: 9085862295456519062}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -292,6 +293,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1e9eb75e5d93045a93613e0973f46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9085862295456519062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624683822107896174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349a66a42370cbe41a62b686136e17f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 3684805809723460398}
+  DamageColor: {r: 1, g: 0.99433964, b: 0.99433964, a: 0}
+  BlinkSpeed: 20
+  EmissionColorPropertyName: _Addition
+  healthComponents: {fileID: 40689807145481812}
 --- !u!1 &7153394057357037069
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +405,12 @@ PrefabInstance:
 --- !u!4 &3684805809709767180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3684805809709891726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3684805809723460398 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 2732fe64dd2799f439fb845921df626b,
     type: 3}
   m_PrefabInstance: {fileID: 3684805809709891726}
   m_PrefabAsset: {fileID: 0}

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -725791482472339072}
   - component: {fileID: 40689807145481812}
   - component: {fileID: 4315126872017472358}
-  - component: {fileID: 6747952671867593038}
   - component: {fileID: 6619458474292209237}
   - component: {fileID: 4180698205808042621}
   - component: {fileID: 6349032548184817651}
@@ -22,6 +21,7 @@ GameObject:
   - component: {fileID: 5073479427197114572}
   - component: {fileID: 727007746258726418}
   - component: {fileID: 1697081961580211088}
+  - component: {fileID: 4485048691369228286}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -146,23 +146,6 @@ MonoBehaviour:
   sightDistance: 5
   sightHalfAngle: 45
   eyeHeight: 1
---- !u!114 &6747952671867593038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5624683822107896174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a28150ec5e3a1649a8b087c28852ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthComponents: {fileID: 40689807145481812}
-  animator: {fileID: -725791482472339072}
-  perceptionComp: {fileID: 6349032548184817651}
-  behaviorTree: {fileID: 0}
-  movementComponent: {fileID: 1697081961580211088}
 --- !u!114 &6619458474292209237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +255,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 8
+--- !u!114 &4485048691369228286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624683822107896174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349a66a42370cbe41a62b686136e17f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  DamageColor: {r: 0.990566, g: 0.9756141, b: 0.9756141, a: 0}
+  BlinkSpeed: 22
+  EmissionColorPropertyName: _Addition
+  healthComponents: {fileID: 40689807145481812}
 --- !u!1 &7153394057357037069
 GameObject:
   m_ObjectHideFlags: 0

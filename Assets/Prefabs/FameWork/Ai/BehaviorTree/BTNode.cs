@@ -59,6 +59,8 @@ public abstract class  BTNode
   public virtual BTNode  Get(){
     return this;
   }
-
+  public virtual void Initialize(){
+    
+  }
 
 }

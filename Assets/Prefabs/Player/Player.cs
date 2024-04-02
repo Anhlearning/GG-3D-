@@ -17,6 +17,8 @@ public class Player : MonoBehaviour,ItemInterface
     [Header("HealthDamage")]
     [SerializeField] HealthComponents healthComponents;
     [SerializeField] PlayerHealthBar healthBar;
+    [Header("UI")]
+    [SerializeField] UIManager uIManager;
     [SerializeField] MovementComponent movementComponent;
     [SerializeField] int teamID=1;
     [SerializeField]float MoveSpeed=20f;
@@ -41,6 +43,12 @@ public class Player : MonoBehaviour,ItemInterface
         cameraController=FindObjectOfType<CameraController>();
         healthComponents.onHealthChange+=HealthChange;
         healthComponents.BroadcastHealthValueImeidately();
+        healthComponents.onHealEmpty+=StartDeathSequence;
+    }
+    public void StartDeathSequence(){
+        animator.SetLayerWeight(2,1);
+        animator.SetTrigger("Death");
+        uIManager.SetGamePlayControlEnabled(false);
     }
     public void HealthChange(float healt,float delta,float maxHealth){
         healthBar.UpdateHealth(healt,delta,maxHealth);
