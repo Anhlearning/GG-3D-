@@ -9,7 +9,7 @@ public class SpiterBehaviorTree : BehaviorTree
     {
         Selector RootSelector = new Selector();
 
-        RootSelector.AddChildren(new BTTask_GroupAttackTarget(this,5f,10f));
+        RootSelector.AddChildren(new BTTask_GroupAttackTarget(this,5f,10f,2f));
       
         RootSelector.AddChildren(new BTTask_GroupMoveToLastSeenLoc(this,3f));
      

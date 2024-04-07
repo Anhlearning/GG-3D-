@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
+
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
 public class Projectile : MonoBehaviour
 {
    [SerializeField] float flightHeight;
@@ -10,6 +14,7 @@ public class Projectile : MonoBehaviour
 
    [SerializeField] DamageComponent damageComponent;
 
+   [SerializeField] ParticleSystem ExplosionVFX;
    ItemInterface instigatorTeamInterface;
    public void Launch(GameObject instigator,Vector3 Destination){
         instigatorTeamInterface=instigator.GetComponent<ItemInterface>();
@@ -32,12 +37,13 @@ public class Projectile : MonoBehaviour
    }
 
    private void OnTriggerEnter(Collider other) {
-        
         if(instigatorTeamInterface.GetRelationTowards(other.gameObject)!= EteamRelation.Friendly){
             Explode();
         }
    }
    private void Explode(){
+        UnityEngine.Vector3 pawnPos=transform.position;
+        Instantiate(ExplosionVFX,pawnPos,Quaternion.identity);
         Destroy(gameObject);
    }
 }

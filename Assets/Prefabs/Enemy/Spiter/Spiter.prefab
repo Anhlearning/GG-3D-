@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
@@ -196,7 +196,7 @@ MonoBehaviour:
   behaviorTree: {fileID: 8147993444199641787}
   movementComponent: {fileID: 4177621598410622355}
   teamID: 2
-  projectilePrefab: {fileID: -7251287861100534114, guid: 18c963cd3b5af3d4da5304693123fb13,
+  projectilePrefab: {fileID: 8579479623809966762, guid: 3b9d2b6a20a39a745ab62eda97d067ab,
     type: 3}
   launchPoint: {fileID: 821171428276708497}
 --- !u!114 &8147993444199641787
@@ -279,7 +279,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 3a3cea986292c2445a02c973a48c7e8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
