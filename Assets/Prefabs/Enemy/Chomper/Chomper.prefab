@@ -78,7 +78,7 @@ Transform:
   - {fileID: 4734889259216253057}
   - {fileID: 5572137059159336732}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1736701540177075306
 CapsuleCollider:
@@ -482,7 +482,7 @@ PrefabInstance:
     - target: {fileID: 6319088882637736141, guid: 22c3dae95dde24a458b6221fb9c27f2c,
         type: 3}
       propertyPath: damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6319088882637736141, guid: 22c3dae95dde24a458b6221fb9c27f2c,
         type: 3}

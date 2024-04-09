@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
+public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface,ISpawnInterface
 {
     [SerializeField] HealthComponents healthComponents;
     [SerializeField] Animator animator;
@@ -27,10 +27,14 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
             animator=value;
         }
     }
-    protected virtual void Start() {
-        healthComponents.onHealEmpty+=StartDeath;
-        healthComponents.onTakeDamage+=TakenDamage;
+    private void Awake() {
         perceptionComp.onPerceptionTargetChanged+=targetChanged;
+    }
+    protected virtual void Start() {
+        if(healthComponents !=null){
+            healthComponents.onHealEmpty+=StartDeath;
+            healthComponents.onTakeDamage+=TakenDamage;
+        }
         previousLoc=transform.position;
     }
     private void Update() {
@@ -94,7 +98,16 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
         
         movementComponent.RotateTowards(Aimdir);
     }
+    public void SpawBy(GameObject spawnerGameobject){
+        BehaviorTree spawnerBehaiorTree=spawnerGameobject.GetComponent<BehaviorTree>();
+        if(spawnerBehaiorTree !=null && spawnerBehaiorTree.BlackBoard.GetBlackboardData<GameObject>("target",out GameObject spawnerTarger)){
+                PerceptionStimuli targetStimuli=spawnerTarger.GetComponent<PerceptionStimuli>();
+                if(perceptionComp && targetStimuli){
+                    perceptionComp.AssignPercievedStimuli(targetStimuli);
+                }
+        }
+    }
     public virtual void attackTarget(GameObject target){
-        
+        //override in child 
     }
 }

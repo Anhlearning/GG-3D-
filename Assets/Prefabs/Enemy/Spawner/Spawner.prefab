@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4485048691369228286}
   - component: {fileID: 2803957025951636738}
   - component: {fileID: 5554874939479802373}
+  - component: {fileID: 6674009633459187284}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -75,7 +76,7 @@ Transform:
   - {fileID: 2344518066788330202}
   - {fileID: 8391776213104725926}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4482643532901697160
 CapsuleCollider:
@@ -271,7 +272,7 @@ MonoBehaviour:
   healthComponents: {fileID: 40689807145481812}
   animator: {fileID: -725791482472339072}
   perceptionComp: {fileID: 6349032548184817651}
-  behaviorTree: {fileID: 0}
+  behaviorTree: {fileID: 6674009633459187284}
   movementComponent: {fileID: 0}
   teamID: 2
 --- !u!114 &5554874939479802373
@@ -288,8 +289,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToSpawn:
   - {fileID: 6951938907190937453, guid: b4e99693f8f22c941a9efa6ec8638ac2, type: 3}
-  - {fileID: 5624683822107896174, guid: 1849b6798560ab94fb5cd0520c5e3470, type: 3}
+  - {fileID: 8132146123605977287, guid: 07181cd1785945a4f9906d788c403ffc, type: 3}
   spawnTransform: {fileID: 8391776213104725926}
+--- !u!114 &6674009633459187284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624683822107896174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f71bb91fb5c1ce479666fcaf42cc03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7153394057357037069
 GameObject:
   m_ObjectHideFlags: 0

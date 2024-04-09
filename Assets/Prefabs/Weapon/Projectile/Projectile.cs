@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
    }
 
    private void OnTriggerEnter(Collider other) {
-        if(instigatorTeamInterface.GetRelationTowards(other.gameObject)!= EteamRelation.Friendly){
+        if(instigatorTeamInterface.GetRelationTowards(other.gameObject)!= EteamRelation.Friendly ){
             Explode();
         }
    }

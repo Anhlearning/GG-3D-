@@ -27,5 +27,9 @@ public class SpawnComponent : MonoBehaviour
    public void SpawnImpl(){
         int RandomPick=Random.Range(0,ObjectToSpawn.Length);
         GameObject newSpawn=Instantiate(ObjectToSpawn[RandomPick],spawnTransform.position,spawnTransform.rotation);
+        ISpawnInterface newSpawnInterface=newSpawn.GetComponent<ISpawnInterface>();
+        if(newSpawnInterface !=null){
+            newSpawnInterface.SpawBy(gameObject);
+        }
    }
 }
