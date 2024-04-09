@@ -46,7 +46,7 @@ public class BTTask_MoveLoc : BTNode
     Boolean IsLocInAcceptableDistance(){
         return Vector3.Distance(loc,tree.transform.position)<=acceptableDistance;
     }
-      protected override void End()
+    protected override void End()
     {
         agent.isStopped=true;
         base.End();

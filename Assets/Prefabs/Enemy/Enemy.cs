@@ -38,6 +38,9 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
     }
 
     private void Calculate(){
+        if(movementComponent ==null) {
+            return ;
+        }
         Vector3 PosDelta=transform.position-previousLoc;
         float speed=PosDelta.magnitude/Time.deltaTime;
 
@@ -63,6 +66,9 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
 
     public void TriggerDeathAnimation(){
         if(animator!=null){
+            if(gameObject.GetComponent<CapsuleCollider>() !=null){
+                gameObject.GetComponent<CapsuleCollider>().enabled=false;
+            }
             animator.SetTrigger("Dead");
         }
     }
@@ -79,6 +85,9 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
         }
     }
     public void RorateTowards(GameObject target,bool verticalAim=false){
+        if(movementComponent ==null){
+            return ;
+        }
         Vector3 Aimdir=target.transform.position - transform.position;
         Aimdir.y=verticalAim ? Aimdir.y : 0;
         Aimdir=Aimdir.normalized;

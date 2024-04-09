@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 727007746258726418, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
       propertyPath: patrolPoints.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485048691369228286, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
@@ -63,12 +63,12 @@ PrefabInstance:
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.13
+      value: -2.44519
       objectReference: {fileID: 0}
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
@@ -78,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.01
+      value: 8.890015
       objectReference: {fileID: 0}
     - target: {fileID: 8985818349892171223, guid: 4803af7747944204fbcd8ff91b163917,
         type: 3}
