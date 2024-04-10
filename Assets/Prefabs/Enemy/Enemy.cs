@@ -77,7 +77,11 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
         }
     }
     public void OnDeathAnimationFinish(){
+        Dead();
         Destroy(gameObject);
+    }
+    protected virtual void Dead(){
+
     }
     private void OnDrawGizmos() {
         if(behaviorTree && behaviorTree.BlackBoard.GetBlackboardData("target",out GameObject target)){

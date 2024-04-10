@@ -20,7 +20,6 @@ public class DamageVizualizer : MonoBehaviour
     protected virtual void TookDamage(float health,float delta,float maxhealth,GameObject Instigator){
         Color currentEmissionColor=mesh.material.GetColor(EmissionColorPropertyName);
         if(Mathf.Abs((currentEmissionColor-OrigionalEmissionColor).grayscale)<0.1f){
-            Debug.Log("CHUYEN MAU");
             mesh.material.SetColor(EmissionColorPropertyName,DamageColor);
         }
     }
