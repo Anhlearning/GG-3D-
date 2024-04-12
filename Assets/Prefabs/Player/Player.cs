@@ -22,6 +22,8 @@ public class Player : MonoBehaviour,ItemInterface
     [SerializeField] MovementComponent movementComponent;
     [SerializeField] int teamID=1;
     [SerializeField]float MoveSpeed=20f;
+    [SerializeField]float maxMoveSpeed=80f;
+    [SerializeField]float minMoveSpeed=5f;
     [SerializeField] float animTurnSpeed=20f;
     CameraController cameraController;
     Camera mainCam;
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour,ItemInterface
 
     public int GetTeamID(){
         return teamID;
+    }
+    internal void AddMoveSpeed(float boostAmt){
+        MoveSpeed+=boostAmt;
+        MoveSpeed=Mathf.Clamp(MoveSpeed,minMoveSpeed,maxMoveSpeed);
     }
     
     void Start()

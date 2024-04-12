@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1458130307328108964}
   - component: {fileID: 2273390350353651578}
   - component: {fileID: 7183355381496273484}
+  - component: {fileID: 6220750916925644676}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 7395915994953674524}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6822890805113532186
 CharacterController:
@@ -84,9 +85,12 @@ MonoBehaviour:
   inventoryComponent: {fileID: 7948200825274258639}
   healthComponents: {fileID: 1458130307328108964}
   healthBar: {fileID: 0}
+  uIManager: {fileID: 0}
   movementComponent: {fileID: 5301360868738681248}
   teamID: 1
   MoveSpeed: 5
+  maxMoveSpeed: 80
+  minMoveSpeed: 5
   animTurnSpeed: 15
 --- !u!95 &3423640992428325336
 Animator:
@@ -185,6 +189,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cab1dbb60870964d8ab616b0af067d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6220750916925644676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585002552708093279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffdba593c8c78fa4989e8e002e245650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialAbilities:
+  - {fileID: 11400000, guid: 85158fa106c2ea348ab0b1a89b161114, type: 2}
+  stamina: 200
+  maxStamina: 200
 --- !u!1 &2450538596387217813
 GameObject:
   m_ObjectHideFlags: 0
