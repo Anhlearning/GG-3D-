@@ -10,7 +10,7 @@ public class SpeedBoost : Ability
     Player player;
     public override void ActivateAbility()
     {
-        if(CommitAbility()){
+        if(!CommitAbility()){
             return ;
         }
         player = AbilityComp.GetComponent<Player>();

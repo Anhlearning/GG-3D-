@@ -12,7 +12,9 @@ public abstract class Ability : ScriptableObject
     bool abilityOnCoolDown=false;
     public delegate void OnCoolDownStarted();
     public event OnCoolDownStarted onCoolDownStarted;
-
+    internal Sprite GetAbilityIcon(){
+        return AbilityIcon;
+    }
     public void InitAbility(AbilityComponent abilityComponent){
         this.abilityComponent=abilityComponent;
     }
@@ -44,5 +46,9 @@ public abstract class Ability : ScriptableObject
         yield return new WaitForSeconds(CoolDownDuration);
         abilityOnCoolDown=false;
     }
-    
+     public float getCoolDownDuration(){
+        return CoolDownDuration;
+    }
 }
+    
+

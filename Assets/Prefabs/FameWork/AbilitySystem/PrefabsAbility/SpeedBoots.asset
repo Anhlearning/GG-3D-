@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923635cc56133ad47a3945d855d4169e, type: 3}
   m_Name: SpeedBoots
   m_EditorClassIdentifier: 
-  AbilityIcon: {fileID: 0}
+  AbilityIcon: {fileID: 21300000, guid: 30a8269497a3eb14ea7ce4511d1e0fcf, type: 3}
   StaminaCost: 10
   CoolDownDuration: 2
   boostAmt: 20
