@@ -9,6 +9,7 @@ public class TriggerDamageComponent : DamageComponent
     [SerializeField] BoxCollider trigger;
     [SerializeField] bool startEnabled=false; 
 
+
     public void SetDamageEnable(bool enable){
         trigger.enabled=enable;
     }

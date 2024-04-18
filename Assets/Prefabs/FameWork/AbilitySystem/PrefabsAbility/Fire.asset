@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31722135c85844a4ea6d6883eff25f9a, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  AbilityIcon: {fileID: 21300000, guid: 4b9e3e7d825c1d7478571e42807a8e4b, type: 3}
+  StaminaCost: 30
+  CoolDownDuration: 8
+  ScanerPrefab: {fileID: 7527205780260208829, guid: d82aec3c4d0a26942bebda13a857f0b2,
+    type: 3}
+  fireRadius: 20
+  fireDuration: 0.5
+  ScanVFX: {fileID: 2343384923519431962, guid: 3e249e7810062de4b93daeb016f23e9c, type: 3}
+  DamageVFX: {fileID: 100004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
