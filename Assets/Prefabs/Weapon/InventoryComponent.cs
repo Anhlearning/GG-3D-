@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryComponent : MonoBehaviour
+public class InventoryComponent : MonoBehaviour,IPurchaseListener
 {
    [SerializeField] Weapon[] initWeaponsPrefabs;
    [SerializeField] Transform defaultWeaponSlot;
@@ -17,7 +17,16 @@ public class InventoryComponent : MonoBehaviour
     private void InitializeWeapons(){
         weapons=new List<Weapon>();
         foreach(Weapon weapon in initWeaponsPrefabs){
-            Transform weaponSlot=defaultWeaponSlot;
+            GiveNewWeapon(weapon);
+        }
+
+        nextWeapon();
+    }
+    public Weapon GetActiveWeapons(){
+        return weapons[currentWeaponIdx];
+    }
+    private void GiveNewWeapon(Weapon weapon){
+          Transform weaponSlot=defaultWeaponSlot;
             foreach(Transform slot in weaponSlots){
                 if(slot.transform.tag==weapon.GetAttackSlotTag()){
                     weaponSlot =slot;
@@ -26,12 +35,6 @@ public class InventoryComponent : MonoBehaviour
             Weapon newWeapon=Instantiate(weapon,weaponSlot);
             newWeapon.Init(gameObject);
             weapons.Add(newWeapon);
-        }
-
-        nextWeapon();
-    }
-    public Weapon GetActiveWeapons(){
-        return weapons[currentWeaponIdx];
     }
 
     public void nextWeapon(){
@@ -55,7 +58,16 @@ public class InventoryComponent : MonoBehaviour
         weapons[weaponIndex].Equip();
 
         currentWeaponIdx=weaponIndex;
-
     }
+    public bool HandlePurchase(Object newPurchase){
+        GameObject itemAsGameObject = newPurchase as GameObject;
 
+        if(itemAsGameObject ==null){
+            return false;
+        }
+        Weapon itemAsWeapon=itemAsGameObject.GetComponent<Weapon>();
+        if(itemAsWeapon ==null) return false;
+        GiveNewWeapon(itemAsWeapon);
+        return true;
+    }
 }

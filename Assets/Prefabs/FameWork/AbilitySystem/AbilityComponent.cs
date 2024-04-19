@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AbilityComponent : MonoBehaviour
@@ -16,6 +17,10 @@ public class AbilityComponent : MonoBehaviour
 
     [SerializeField] float stamina=200f;
     [SerializeField] float maxStamina=200f;
+
+    public void BroadcastStaminaValueImeidately(){
+        onStaminaChange?.Invoke(stamina,maxStamina);
+    }
     void Start()
     {
         foreach(Ability ability in InitialAbilities){
@@ -44,7 +49,7 @@ public class AbilityComponent : MonoBehaviour
             return false;
         }
         stamina-=staminaConsume;
-        onStaminaChange?.Invoke(stamina,maxStamina);
+        BroadcastStaminaValueImeidately();
         return true;
     }
 }

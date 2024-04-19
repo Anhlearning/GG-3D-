@@ -11,17 +11,31 @@ public class Player : MonoBehaviour,ItemInterface
     [SerializeField] CharacterController characterController;
     Vector2 moveInput;
     Vector2 aimInput;
+    [Header("SHOP")]
+    [SerializeField] ShopSystem testShopsystem;
+    [SerializeField] ShopItem testsShopItem;
+
+    void Testpurchase(){
+        testShopsystem.TryPurChase(testsShopItem,GetComponent<CreditComponent>());
+    }
+
 
     [Header("InventoryComponent")]
     [SerializeField] InventoryComponent inventoryComponent;
 
     [Header("HealthDamage")]
     [SerializeField] HealthComponents healthComponents;
-    [SerializeField] PlayerHealthBar healthBar;
+    [SerializeField] PlayerValueGague healthBar;
+
+    [Header("Ability")]
+    [SerializeField] AbilityComponent abilityComponent;
+    [SerializeField] PlayerValueGague staminaBar;
     [Header("UI")]
     [SerializeField] UIManager uIManager;
     [SerializeField] MovementComponent movementComponent;
     [SerializeField] int teamID=1;
+
+    [Header("Propoties")]
     [SerializeField]float MoveSpeed=20f;
     [SerializeField]float maxMoveSpeed=80f;
     [SerializeField]float minMoveSpeed=5f;
@@ -51,6 +65,15 @@ public class Player : MonoBehaviour,ItemInterface
         healthComponents.onHealthChange+=HealthChange;
         healthComponents.BroadcastHealthValueImeidately();
         healthComponents.onHealEmpty+=StartDeathSequence;
+
+        abilityComponent.onStaminaChange+=staminaChange;
+        abilityComponent.BroadcastStaminaValueImeidately();
+
+        Invoke("Testpurchase",3);
+
+    }
+    public void staminaChange(float newAmt,float maxAmt){
+        staminaBar.UpdateValue(newAmt,0,maxAmt);
     }
     public void StartDeathSequence(){
         animator.SetLayerWeight(2,1);
@@ -58,7 +81,7 @@ public class Player : MonoBehaviour,ItemInterface
         uIManager.SetGamePlayControlEnabled(false);
     }
     public void HealthChange(float healt,float delta,float maxHealth){
-        healthBar.UpdateHealth(healt,delta,maxHealth);
+        healthBar.UpdateValue(healt,delta,maxHealth);
     }
     private void Update()
     {
