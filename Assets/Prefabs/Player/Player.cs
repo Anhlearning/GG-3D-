@@ -68,8 +68,7 @@ public class Player : MonoBehaviour,ItemInterface
 
         abilityComponent.onStaminaChange+=staminaChange;
         abilityComponent.BroadcastStaminaValueImeidately();
-
-        Invoke("Testpurchase",3);
+        Testpurchase();
 
     }
     public void staminaChange(float newAmt,float maxAmt){

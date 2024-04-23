@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public interface IPurchaseListener{
-    public bool HandlePurchase(Object newPurchase);
+    public bool HandlePurchase(ShopItem newPurchase);
 }
 
 
@@ -32,7 +32,7 @@ public class CreditComponent : MonoBehaviour
         }
     }
 
-    private void BroadcastPurchase(Object item){
+    private void BroadcastPurchase(ShopItem item){
         foreach(IPurchaseListener purchaseListener in purchaseListenerInterface){
            if( purchaseListener.HandlePurchase(item)){
                 return ;
@@ -46,9 +46,8 @@ public class CreditComponent : MonoBehaviour
 
 
 
-    public bool Purchase(int price ,Object item){
+    public bool Purchase(int price ,ShopItem item){
         if(creadits < price) return false;
-
         creadits-=price;
         onCreditChange?.Invoke(creadits);
         BroadcastPurchase(item);

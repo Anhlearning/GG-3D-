@@ -59,8 +59,8 @@ public class InventoryComponent : MonoBehaviour,IPurchaseListener
 
         currentWeaponIdx=weaponIndex;
     }
-    public bool HandlePurchase(Object newPurchase){
-        GameObject itemAsGameObject = newPurchase as GameObject;
+    public bool HandlePurchase(ShopItem newPurchase){
+        GameObject itemAsGameObject = newPurchase.item as GameObject;
 
         if(itemAsGameObject ==null){
             return false;

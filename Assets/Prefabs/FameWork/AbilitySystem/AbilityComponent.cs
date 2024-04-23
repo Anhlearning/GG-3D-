@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AbilityComponent : MonoBehaviour
+public class AbilityComponent : MonoBehaviour,IPurchaseListener
 {
     // xử lý các khả năng 
     [SerializeField] Ability[] InitialAbilities;
@@ -50,6 +50,17 @@ public class AbilityComponent : MonoBehaviour
         }
         stamina-=staminaConsume;
         BroadcastStaminaValueImeidately();
+        return true;
+    }
+    public bool HandlePurchase(ShopItem newPurchase){
+        Ability itemAbility = newPurchase.item as Ability;
+        Debug.Log($"{newPurchase}");
+        if(itemAbility ==null){
+            Debug.Log("NULL");
+            return false;
+        }
+        GiveAbility(itemAbility);
+
         return true;
     }
 }
