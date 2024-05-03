@@ -50,6 +50,7 @@ public class CreditComponent : MonoBehaviour
         if(creadits < price) return false;
         creadits-=price;
         onCreditChange?.Invoke(creadits);
+        Debug.Log("Da mua");
         BroadcastPurchase(item);
         return true;
     }

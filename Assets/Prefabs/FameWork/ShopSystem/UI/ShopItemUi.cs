@@ -14,7 +14,6 @@ public class ShopItemUi : MonoBehaviour
    [SerializeField] TextMeshProUGUI TitleText;
    [SerializeField] TextMeshProUGUI PriceText;
    [SerializeField] TextMeshProUGUI Descrpetion;
-
    [SerializeField] Button button;
    [SerializeField] Image GrayOutCover;
 
@@ -29,7 +28,6 @@ public class ShopItemUi : MonoBehaviour
         TitleText.text=item.title;
         PriceText.text="$"+item.price.ToString();
         Descrpetion.text=item.description;
-
         RefreshRate(Avaliablecredits);
    }
    private void RefreshRate(int tmp){
