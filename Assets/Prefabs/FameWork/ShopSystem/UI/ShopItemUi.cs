@@ -22,6 +22,19 @@ public class ShopItemUi : MonoBehaviour
    [SerializeField] Color InEfficientCreditColor;
    [SerializeField] Color SurffiicentCreditColor;
 
+    public ShopItem Get(){
+        return item;
+    }
+    public delegate void OnItemSelected(ShopItemUi selectedItem);
+    public event OnItemSelected onItemSelected;
+
+    private void Start() {
+        button.onClick.AddListener(ItemSelected);
+        //Descrpetion.autoSizeTextContainer=true;
+    }
+    private void ItemSelected(){
+        onItemSelected?.Invoke(this);
+    }
    public void Init(ShopItem item,int Avaliablecredits){
         this.item=item;
         Icon.sprite=item.Itemicon;
@@ -30,7 +43,7 @@ public class ShopItemUi : MonoBehaviour
         Descrpetion.text=item.description;
         RefreshRate(Avaliablecredits);
    }
-   private void RefreshRate(int tmp){
+    public void RefreshRate(int tmp){
         if(tmp<item.price){
             GrayOutCover.enabled=true;
             PriceText.color=InEfficientCreditColor;

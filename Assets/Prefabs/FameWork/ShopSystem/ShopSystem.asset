@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: ShopSystem
   m_EditorClassIdentifier: 
   shopItems:
-  - {fileID: 11400000, guid: 2239917f927ec6f419d2364b2836f727, type: 2}
+  - {fileID: 11400000, guid: af9974275d0390845b711b0d514ff214, type: 2}
+  - {fileID: 11400000, guid: 116c66dddedb3b844be5ee306228b654, type: 2}
+  - {fileID: 11400000, guid: fa8851035e16935499cdd7bb6806722c, type: 2}
   - {fileID: 11400000, guid: 7923953da27d05a40a50251eccfdc04f, type: 2}
+  - {fileID: 11400000, guid: 2239917f927ec6f419d2364b2836f727, type: 2}

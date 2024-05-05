@@ -96,7 +96,7 @@ RectTransform:
   - {fileID: 5741541120487016861}
   - {fileID: 2263078298260216270}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -684,6 +684,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShopUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592349085004408300, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.058561735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592349085004408300, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.058561735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592349085004408300, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735436892614075358, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.038732607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735436892614075358, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.038732607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735436892614075358, guid: bbfbfd0445410e34d923c0eac33f23be,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.6415094
       objectReference: {fileID: 0}
     - target: {fileID: 2174406310780831937, guid: bbfbfd0445410e34d923c0eac33f23be,
         type: 3}

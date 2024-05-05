@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RifleShopItem
   m_EditorClassIdentifier: 
   title: Rifle
-  price: 20
+  price: 80
   item: {fileID: 4203567665749699020, guid: 33614714ed4b9d1458f1587f22e0449c, type: 3}
   Itemicon: {fileID: 21300000, guid: 15840431aa3c3954bad5a8156685b2bd, type: 3}
   description: 'A power Assalut rifle ... '

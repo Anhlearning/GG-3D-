@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
    }
     public void SwitchToGamePlayUI(){
         SetCurrentActiveGrp(GameplayCtrl);
+        GamePlayStatic.SetGamePause(false);
     }
    private void SetGroupActive(CanvasGroup child,bool interactable,bool visible){
      child.interactable=interactable;
@@ -49,6 +50,7 @@ public class UIManager : MonoBehaviour
 
      public void SwitchToShop(){
           SetCurrentActiveGrp(Shop);
+          GamePlayStatic.SetGamePause(true);
      }
    public void SetCanvasGroupEnabled(CanvasGroup group,bool enable){
         group.interactable=enable;
