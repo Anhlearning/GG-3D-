@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AbilityComponent : MonoBehaviour,IPurchaseListener
+public class AbilityComponent : MonoBehaviour,IPurchaseListener,IRewardListener
 {
     // xử lý các khả năng 
     [SerializeField] Ability[] InitialAbilities;
@@ -62,5 +62,9 @@ public class AbilityComponent : MonoBehaviour,IPurchaseListener
         GiveAbility(itemAbility);
 
         return true;
+    }
+    public void Reward(Reward reward){
+        stamina=Mathf.Clamp(stamina+reward.staminaReward,0,maxStamina);
+        BroadcastStaminaValueImeidately();
     }
 }

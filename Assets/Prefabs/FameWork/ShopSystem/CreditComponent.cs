@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public interface IPurchaseListener{
 
 
 
-public class CreditComponent : MonoBehaviour
+public class CreditComponent : MonoBehaviour,IRewardListener
 {
     [SerializeField] int creadits;
     [SerializeField] Component[] PurchaseListeners;
@@ -43,7 +44,10 @@ public class CreditComponent : MonoBehaviour
     public int Credit{
         get{return creadits;}
     }
-
+    public void Reward(Reward reward){
+        creadits+=reward.creditReward;
+        onCreditChange?.Invoke(creadits);
+    }
 
 
     public bool Purchase(int price ,ShopItem item){

@@ -31,6 +31,7 @@ public class ShopUI : MonoBehaviour
             return ;
         }
         RemoveItem(selectedItem);
+        Destroy(selectedItem.gameObject);
     }
     private void RemoveItem(ShopItemUi itemUiremove){
         shopItems.Remove(itemUiremove);

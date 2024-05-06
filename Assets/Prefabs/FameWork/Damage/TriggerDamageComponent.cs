@@ -23,7 +23,7 @@ public class TriggerDamageComponent : DamageComponent
         HealthComponents healthComp=other.GetComponent<HealthComponents>();
         if(healthComp!=null){
             Debug.Log("ATTACK");
-            healthComp.changeHealth(-damage,healthComp.gameObject);
+            healthComp.changeHealth(-damage,gameObject);
         }
     }
 }

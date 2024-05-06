@@ -29,7 +29,7 @@ public class HealthBar : MonoBehaviour
         transform.position=ownerScreenPoint;
     }
 
-    internal void OnOwnerDead()
+    internal void OnOwnerDead(GameObject killer)
     {
         Destroy(gameObject);
     }

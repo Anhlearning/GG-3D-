@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
 
     Vector3 previousLoc;
 
+    [SerializeField] Reward killerReward;
     public int GetTeamID(){
         return teamID;
     }
@@ -64,8 +65,12 @@ public abstract class Enemy : MonoBehaviour ,BehaviorTreeInterface,ItemInterface
     public void TakenDamage(float health,float delta,float maxhealth,GameObject Instigator){
 
     }
-    public void StartDeath(){
+    public void StartDeath(GameObject killer){
         TriggerDeathAnimation();
+        IRewardListener[] rewardListeners=killer.GetComponents<IRewardListener>();
+        foreach(IRewardListener listener in rewardListeners){
+            listener.Reward(killerReward);
+        }
     }
 
     public void TriggerDeathAnimation(){

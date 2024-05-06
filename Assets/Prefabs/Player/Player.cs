@@ -72,7 +72,7 @@ public class Player : MonoBehaviour,ItemInterface
     public void staminaChange(float newAmt,float maxAmt){
         staminaBar.UpdateValue(newAmt,0,maxAmt);
     }
-    public void StartDeathSequence(){
+    public void StartDeathSequence(GameObject killer ){
         animator.SetLayerWeight(2,1);
         animator.SetTrigger("Death");
         uIManager.SetGamePlayControlEnabled(false);
