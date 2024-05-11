@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameplayCtrl: {fileID: 4318435497339517380}
-  PauseMEnu: {fileID: 0}
+  PauseMEnu: {fileID: 3534952603369783708}
   Shop: {fileID: 1157134986136056680}
 --- !u!1 &4335915592175978273
 GameObject:
