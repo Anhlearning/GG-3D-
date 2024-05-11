@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: SpeedBoost
   price: 40
-  item: {fileID: 11400000}
+  item: {fileID: 11400000, guid: 85158fa106c2ea348ab0b1a89b161114, type: 2}
   Itemicon: {fileID: 21300000, guid: 30a8269497a3eb14ea7ce4511d1e0fcf, type: 3}
   description: "Booost speed by 20m/s in 2s \n\nSamina Cost:10\nCoolDown: 2s \n"

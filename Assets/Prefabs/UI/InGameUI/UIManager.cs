@@ -6,7 +6,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
   [SerializeField]CanvasGroup GameplayCtrl;
-  [SerializeField] CanvasGroup GamePlayMenu;
+  [SerializeField] CanvasGroup PauseMEnu;
   [SerializeField] CanvasGroup Shop;
 
   List<CanvasGroup>Allchildren= new List<CanvasGroup>();
@@ -44,8 +44,9 @@ public class UIManager : MonoBehaviour
    public void SetGamePlayControlEnabled(bool enable){
         SetCanvasGroupEnabled(GameplayCtrl,enable);
    }
-   public void SetGamePlayMenuEnabled(bool enable){
-        SetCanvasGroupEnabled(GamePlayMenu,enable);
+   public void SwitchToPauseMenu(){
+        SetCurrentActiveGrp(PauseMEnu);
+        GamePlayStatic.SetGamePause(true);
    }
 
      public void SwitchToShop(){
