@@ -76,6 +76,7 @@ public class Player : MonoBehaviour,ItemInterface
         animator.SetLayerWeight(2,1);
         animator.SetTrigger("Death");
         uIManager.SetGamePlayControlEnabled(false);
+
     }
     public void HealthChange(float healt,float delta,float maxHealth){
         healthBar.UpdateValue(healt,delta,maxHealth);
@@ -156,5 +157,8 @@ public class Player : MonoBehaviour,ItemInterface
         animatorTurnSpeed=Mathf.Lerp(animatorTurnSpeed,currentTurnSpeed,Time.deltaTime*animTurnSpeed);
 
         animator.SetFloat("turnSpeed",animatorTurnSpeed);
+    }
+    public void DeathFinished(){
+        uIManager.SwtichToDeathMenu();
     }
 }

@@ -8,10 +8,10 @@ public class UIManager : MonoBehaviour
   [SerializeField]CanvasGroup GameplayCtrl;
   [SerializeField] CanvasGroup PauseMEnu;
   [SerializeField] CanvasGroup Shop;
-
+  [SerializeField] CanvasGroup DeadthMenu;
   List<CanvasGroup>Allchildren= new List<CanvasGroup>();
 
-     CanvasGroup currentGrp;
+  CanvasGroup currentGrp;
    private void Start() {
      List<CanvasGroup>children=new List<CanvasGroup>();
      GetComponentsInChildren(true,children);
@@ -56,5 +56,9 @@ public class UIManager : MonoBehaviour
    public void SetCanvasGroupEnabled(CanvasGroup group,bool enable){
         group.interactable=enable;
         group.blocksRaycasts=enable;
+   }
+   public void SwtichToDeathMenu(){
+     SetCurrentActiveGrp(DeadthMenu);
+     GamePlayStatic.SetGamePause(true);
    }
 }
