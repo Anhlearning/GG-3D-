@@ -23,7 +23,10 @@ public class InventoryComponent : MonoBehaviour,IPurchaseListener
         nextWeapon();
     }
     public Weapon GetActiveWeapons(){
-        return weapons[currentWeaponIdx];
+        if(hasWeapon()){
+            return weapons[currentWeaponIdx];
+        }
+        return null;
     }
     private void GiveNewWeapon(Weapon weapon){
           Transform weaponSlot=defaultWeaponSlot;
@@ -77,5 +80,8 @@ public class InventoryComponent : MonoBehaviour,IPurchaseListener
             hasWeapon=true;
         }
         return true;
+    }
+    public bool hasWeapon(){
+        return weapons.Count!=0;
     }
 }

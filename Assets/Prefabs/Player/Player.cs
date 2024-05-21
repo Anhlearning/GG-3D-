@@ -87,22 +87,29 @@ public class Player : MonoBehaviour,ItemInterface
         UpdateCamera();
     }
     public void StartswitchWeapon(){
-        animator.SetTrigger("switchWeapon");
+        if(inventoryComponent.hasWeapon()){
+            animator.SetTrigger("switchWeapon");
+        }
     }
     public void switchWeapon(){
         inventoryComponent.nextWeapon();
     }
     public void AimStickUpdate(Vector2 inputValue){
         aimInput=inputValue;
-        if(aimInput.magnitude>0){
-            animator.SetBool("Attacking",true);
-        }
-        else {
-            animator.SetBool("Attacking",false);
+        if(inventoryComponent.hasWeapon())
+        {
+            if(aimInput.magnitude>0){
+                animator.SetBool("Attacking",true);
+            }
+            else {
+                animator.SetBool("Attacking",false);
+            }
         }
     }
     public void AttackPoint(){
-        inventoryComponent.GetActiveWeapons().Attack();
+        if(inventoryComponent.hasWeapon()){
+            inventoryComponent.GetActiveWeapons().Attack();
+        }
     }
 
     public void MoveStickUpdate(Vector2 InputVal){
