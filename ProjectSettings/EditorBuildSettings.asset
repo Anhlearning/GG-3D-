@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Vendor/EnvArt/Scene/lever_one.unity
+    path: Assets/Scene/lever_one.unity
     guid: a20afd00b3f8da945aa7a278fc4b4b6d
   - enabled: 1
-    path: Assets/Vendor/EnvArt/Scene/Level_1.unity
+    path: Assets/Scene/Level_1.unity
     guid: 7138f1327ad7d4a4385a0386d5f24d50
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 494f144499746a44e91efc12fe3065fb,
