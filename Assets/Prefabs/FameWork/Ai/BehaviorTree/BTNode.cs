@@ -11,6 +11,7 @@ public enum NodeResult{
 }
 public abstract class  BTNode 
 {
+  int priority;
   bool started=false;
   public NodeResult UpdateNode(){
     //one of thing
@@ -48,7 +49,6 @@ public abstract class  BTNode
   public void Abort(){
     EndNode();
   }
-  int priority;
   public int GetPriority(){
     return priority;
   }

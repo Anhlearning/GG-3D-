@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Ability/HealthRegen")]
 public class HealthRegen : Ability
 {
+    [Header("HealthRegen")]
     [SerializeField] float healthRegenAmt;
     [SerializeField] float healthRegenDuration;
 

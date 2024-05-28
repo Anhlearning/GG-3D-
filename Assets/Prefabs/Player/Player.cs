@@ -68,6 +68,7 @@ public class Player : MonoBehaviour,ItemInterface
 
         abilityComponent.onStaminaChange+=staminaChange;
         abilityComponent.BroadcastStaminaValueImeidately();
+        GamePlayStatic.GameStarted();
     }
     public void staminaChange(float newAmt,float maxAmt){
         staminaBar.UpdateValue(newAmt,0,maxAmt);
@@ -130,6 +131,15 @@ public class Player : MonoBehaviour,ItemInterface
         Vector3 worldDir=rightDir*inputVal.x+upDir*inputVal.y;
         return worldDir;
     }
+    private void RotateTowards(Vector3 AimDir)
+    {   
+
+        float currentTurnSpeed=movementComponent.RotateTowards(AimDir);
+        
+        animatorTurnSpeed=Mathf.Lerp(animatorTurnSpeed,currentTurnSpeed,Time.deltaTime*animTurnSpeed);
+
+        animator.SetFloat("turnSpeed",animatorTurnSpeed);
+    }
     // Update is called once per frame
     private void PerformMove()
     {
@@ -156,15 +166,6 @@ public class Player : MonoBehaviour,ItemInterface
         }
     }
 
-    private void RotateTowards(Vector3 AimDir)
-    {   
-
-        float currentTurnSpeed=movementComponent.RotateTowards(AimDir);
-        
-        animatorTurnSpeed=Mathf.Lerp(animatorTurnSpeed,currentTurnSpeed,Time.deltaTime*animTurnSpeed);
-
-        animator.SetFloat("turnSpeed",animatorTurnSpeed);
-    }
     public void DeathFinished(){
         uIManager.SwtichToDeathMenu();
     }

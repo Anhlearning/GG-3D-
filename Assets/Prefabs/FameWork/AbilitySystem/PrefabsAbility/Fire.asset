@@ -15,6 +15,8 @@ MonoBehaviour:
   AbilityIcon: {fileID: 21300000, guid: 4b9e3e7d825c1d7478571e42807a8e4b, type: 3}
   StaminaCost: 30
   CoolDownDuration: 8
+  AbilityAudio: {fileID: 8300000, guid: f8fe7d70af49f9e4da06acbc2abe1db5, type: 3}
+  volume: 1
   ScanerPrefab: {fileID: 7527205780260208829, guid: d82aec3c4d0a26942bebda13a857f0b2,
     type: 3}
   fireRadius: 20

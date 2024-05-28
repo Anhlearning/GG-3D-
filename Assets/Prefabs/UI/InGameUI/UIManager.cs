@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
   [SerializeField] CanvasGroup PauseMEnu;
   [SerializeField] CanvasGroup Shop;
   [SerializeField] CanvasGroup DeadthMenu;
+  [SerializeField] CanvasGroup WinMenu;
+  [SerializeField] UiAudioPlayer uiAudioPlayer;
   List<CanvasGroup>Allchildren= new List<CanvasGroup>();
 
   CanvasGroup currentGrp;
@@ -24,6 +26,16 @@ public class UIManager : MonoBehaviour
      if(Allchildren.Count!=0){
           SetCurrentActiveGrp(Allchildren[0]);
      }
+     LevelManager.onlevelFinished+=levelFinished;
+   }
+   private  void levelFinished(){
+     if(WinMenu ==null){
+          Debug.LogError("WinMenu = null");
+          return ;
+     }
+     SetCurrentActiveGrp(WinMenu);
+     GamePlayStatic.SetGamePause(true);
+     uiAudioPlayer.PlayWin();
    }
    private void SetCurrentActiveGrp(CanvasGroup child){
      if(currentGrp !=null){

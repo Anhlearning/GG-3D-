@@ -10,6 +10,8 @@ public class LevelManager : ScriptableObject
 [SerializeField]int MainMenuBuildIndex=0;
 [SerializeField]int FirstLevelBuildIndex=1;
 
+public delegate void OnlevelFinished();
+public static event OnlevelFinished onlevelFinished;
 public void GoToMainMenu(){
     LoadSenceByIndex(MainMenuBuildIndex);
 }
@@ -23,6 +25,8 @@ private void LoadSenceByIndex(int index){
     SceneManager.LoadScene(index);
     GamePlayStatic.SetGamePause(false);
 }
-    
+internal static void levelFinished(){
+    onlevelFinished?.Invoke();
+}
 }
 

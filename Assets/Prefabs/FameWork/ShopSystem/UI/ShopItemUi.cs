@@ -10,18 +10,12 @@ using UnityEngine.UI;
 using Image =UnityEngine.UI.Image;
 public class ShopItemUi : MonoBehaviour
 {
-   [SerializeField] Image Icon;
-   [SerializeField] TextMeshProUGUI TitleText;
-   [SerializeField] TextMeshProUGUI PriceText;
-   [SerializeField] TextMeshProUGUI Descrpetion;
+   [SerializeField] Image Icon;[SerializeField] TextMeshProUGUI TitleText; [SerializeField] TextMeshProUGUI PriceText;[SerializeField] TextMeshProUGUI Descrpetion;
    [SerializeField] Button button;
    [SerializeField] Image GrayOutCover;
-
    ShopItem item;
-
    [SerializeField] Color InEfficientCreditColor;
    [SerializeField] Color SurffiicentCreditColor;
-
     public ShopItem Get(){
         return item;
     }

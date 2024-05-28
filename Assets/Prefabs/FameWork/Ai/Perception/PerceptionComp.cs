@@ -5,6 +5,9 @@ using UnityEngine;
 public class PerceptionComp : MonoBehaviour
 {
     [SerializeField] SenseComp[] senses;
+    [Header("AudioClip")]
+    [SerializeField] AudioClip DetectionAudio;
+    [SerializeField] float volume=1;
 
     LinkedList<PerceptionStimuli>currentlyPerceiveddStimulis=new LinkedList<PerceptionStimuli>();
     //vấn đề cần giải quyết làm sao để thêm vào các sensecomp mà thứ tự thêm vào dựa trên các kích thích lần lượt 
@@ -43,6 +46,8 @@ public class PerceptionComp : MonoBehaviour
             if(targetStimuli==null || targetStimuli!=highestStimuli){
                 targetStimuli=highestStimuli;
                 onPerceptionTargetChanged?.Invoke(targetStimuli.gameObject,true);
+                Vector3 audioPos=transform.position;
+                GamePlayStatic.PlayAudioAtLoc(DetectionAudio,audioPos,volume);
             }
         }
         else{

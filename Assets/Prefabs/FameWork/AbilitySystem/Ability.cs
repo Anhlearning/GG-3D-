@@ -5,13 +5,16 @@ using UnityEngine;
 
 public abstract class Ability : ScriptableObject
 {
-    [SerializeField] Sprite AbilityIcon;
-    [SerializeField] float StaminaCost=10f;
-    [SerializeField] float CoolDownDuration=2f;
+    [SerializeField] Sprite AbilityIcon; 
+    [SerializeField] float StaminaCost=10f; 
+    [SerializeField] float CoolDownDuration=2f; 
     AbilityComponent abilityComponent;
     bool abilityOnCoolDown=false;
     public delegate void OnCoolDownStarted();
     public event OnCoolDownStarted onCoolDownStarted;
+    [Header("Audio")]
+    [SerializeField] AudioClip AbilityAudio;
+    [SerializeField] float volume =1f;
     internal Sprite GetAbilityIcon(){
         return AbilityIcon;
     }
@@ -34,6 +37,7 @@ public abstract class Ability : ScriptableObject
         }
         StartAbilityCoolDown();
         //..
+        GamePlayStatic.PlayAudioAtPlayer(AbilityAudio,volume);
         return true;
     }
     void StartAbilityCoolDown(){

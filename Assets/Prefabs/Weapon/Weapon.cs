@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -8,6 +9,17 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] AnimatorOverrideController overrideController;
     [SerializeField] float AttackRateMul=1f;
     public abstract void Attack();
+    [SerializeField] float volume;
+    [SerializeField] AudioClip weaponAudio;
+    AudioSource weaponAudioSrc;
+
+    public void WeaponPlayAudio(){
+        weaponAudioSrc.PlayOneShot(weaponAudio,volume);
+    }
+
+    private void Awake() {
+        weaponAudioSrc=GetComponent<AudioSource>();
+    }
     public string GetAttackSlotTag(){
         return AttachSlotTag;
     }

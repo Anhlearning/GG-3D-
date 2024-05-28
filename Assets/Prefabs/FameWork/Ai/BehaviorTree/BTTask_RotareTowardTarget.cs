@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class BTTask_RotareTowardTarget : BTNode
 {
-    BehaviorTree tree;
-    string targetkey;
-    float acceptableDegrees;
-    GameObject target;
-    BehaviorTreeInterface behaviorTreeInterface;
-
+    BehaviorTree tree; float acceptableDegrees;string targetkey;BehaviorTreeInterface behaviorTreeInterface;GameObject target;
     public BTTask_RotareTowardTarget(BehaviorTree tree,string targetkey,float acceptableDegrees=10f){
         this.tree=tree;
         this.targetkey=targetkey;
@@ -17,7 +12,6 @@ public class BTTask_RotareTowardTarget : BTNode
 
         this.behaviorTreeInterface=tree.GetBehaviorTreeInterface();
     }
-
     protected override NodeResult Execute()
     {
         if(tree==null || tree.BlackBoard==null){
@@ -40,7 +34,6 @@ public class BTTask_RotareTowardTarget : BTNode
             target=(GameObject)val;
         }
     }
-
     protected override NodeResult Update()
     {   
         if(target ==null){
@@ -53,7 +46,6 @@ public class BTTask_RotareTowardTarget : BTNode
 
         return NodeResult.Inprogress;
     }
-
     bool IsInacceptableDegree(){
         if(target==null){
             return false;

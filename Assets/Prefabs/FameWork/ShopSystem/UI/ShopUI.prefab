@@ -340,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7710889345288110276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0a3b5a602e6c86b40bd69ff653532808, type: 2}
+        m_TargetAssemblyTypeName: UiAudioPlayer, Assembly-CSharp
+        m_MethodName: PlayCommit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1770895032724376155
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771667986382865934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0a3b5a602e6c86b40bd69ff653532808, type: 2}
+        m_TargetAssemblyTypeName: UiAudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3308623161344110700
 GameObject:
   m_ObjectHideFlags: 0

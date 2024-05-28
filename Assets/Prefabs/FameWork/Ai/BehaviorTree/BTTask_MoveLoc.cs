@@ -6,11 +6,7 @@ using UnityEngine.AI;
 
 public class BTTask_MoveLoc : BTNode
 {
-   NavMeshAgent agent;
-   string lockey;
-   
-   Vector3 loc;
-   float acceptableDistance;
+   NavMeshAgent agent; string lockey;Vector3 loc;   float acceptableDistance;
    BehaviorTree tree;
    public BTTask_MoveLoc(BehaviorTree tree,string key,float acceptableDistance=2f){
         this.lockey=key;
@@ -42,7 +38,6 @@ public class BTTask_MoveLoc : BTNode
         }
         return NodeResult.Inprogress;
     }
-
     Boolean IsLocInAcceptableDistance(){
         return Vector3.Distance(loc,tree.transform.position)<=acceptableDistance;
     }

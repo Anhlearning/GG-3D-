@@ -4,29 +4,48 @@ using UnityEngine;
 
 public class Chomper : Enemy 
 {
-    [SerializeField]TriggerDamageComponent damageComponent;
+    // Thành phần gây thiệt hại được gán trong Inspector
+    [SerializeField] TriggerDamageComponent damageComponent;
+    // Ghi đè phương thức tấn công từ lớp Enemy
     public override void attackTarget(GameObject target)
     {
+        // Kích hoạt hoạt ảnh tấn công
         Animator.SetTrigger("Attack");
     }
-    protected override void Start() {
-        base.Start();
+    // Khởi tạo lớp, được gọi khi đối tượng được kích hoạt
+    protected override void Start() 
+    {
+        base.Start(); // Gọi phương thức khởi tạo của lớp cha
+
+        // Thiết lập giao diện đội cho thành phần gây thiệt hại
         damageComponent.SetTeamInterFace(this);
     }
-
-    public void Log(){
+    // Ghi lại sự kiện để kiểm tra và gỡ lỗi
+    public void Log()
+    {
         Debug.Log("EVENT working");
     }
-    public void AttackPoint(){
+    // Phương thức này được gọi tại điểm tấn công trong hoạt ảnh
+    public void AttackPoint()
+    {
         Debug.Log("AttackPoint");
-        if(damageComponent){
+
+        // Kích hoạt thiệt hại
+        if (damageComponent)
+        {
             damageComponent.SetDamageEnable(true);
         }
     }
-    public void AttackEnd(){
-        if(damageComponent){
+    // Phương thức này được gọi khi tấn công kết thúc
+    public void AttackEnd()
+    {
+        if (damageComponent)
+        {
             Debug.Log("EndAttack");
+
+            // Vô hiệu hóa thiệt hại
             damageComponent.SetDamageEnable(false);
         }
     }
 }
+

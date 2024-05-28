@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-
 public class BTTask_MoveToTarget : BTNode
 {
-   NavMeshAgent agent;
-   string targetkey;
-   GameObject target;
-   float acceptableDistance;
-   BehaviorTree tree;
-
+   NavMeshAgent agent; BehaviorTree tree; string targetkey;GameObject target; float acceptableDistance;
    public BTTask_MoveToTarget(BehaviorTree tree,string key,float acceptableDistance=2f){
         this.targetkey=key;
         this.acceptableDistance=acceptableDistance;
@@ -54,8 +48,6 @@ public class BTTask_MoveToTarget : BTNode
         }
         return NodeResult.Inprogress;
     }
-
-
     bool IsTargetInAcceptableDistance(){
         return Vector3.Distance(target.transform.position,tree.transform.position)<=acceptableDistance;
     }

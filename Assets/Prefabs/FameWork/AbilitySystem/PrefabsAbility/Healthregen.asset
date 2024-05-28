@@ -15,5 +15,7 @@ MonoBehaviour:
   AbilityIcon: {fileID: 21300000, guid: 99b75b60f0123d3418e3be97daded8b2, type: 3}
   StaminaCost: 10
   CoolDownDuration: 3
+  AbilityAudio: {fileID: 8300000, guid: 16592a474aee2455abf0b4722bc2d328, type: 3}
+  volume: 1
   healthRegenAmt: 20
   healthRegenDuration: 2

@@ -16,6 +16,15 @@ public class HealthComponents : MonoBehaviour,IRewardListener
 
     public event OnHealEmpty onHealEmpty;
     
+    [Header("Audio")]
+    [SerializeField] AudioClip HitAudio;
+    [SerializeField] AudioClip DeadthAudio;
+    [SerializeField] float volume;
+    AudioSource audioSrc;
+
+    private void Awake() {
+        audioSrc=GetComponent<AudioSource>();
+    }
     public void BroadcastHealthValueImeidately(){
         onHealthChange?.Invoke(health,0,maxhealth);
     }
@@ -28,14 +37,20 @@ public class HealthComponents : MonoBehaviour,IRewardListener
         health+=amt;
         if(amt<0){
             onTakeDamage?.Invoke(health,amt,maxhealth,Instigator);
+            Vector3 loc=transform.position;
+            if(!audioSrc.isPlaying){
+                audioSrc.PlayOneShot(HitAudio,volume);
+            }
+            // GamePlayStatic.PlayAudioAtLoc(HitAudio,loc,1);
         }
         onHealthChange?.Invoke(health,amt,maxhealth);
 
         if(health<=0){
             health=0;
             onHealEmpty?.Invoke(Instigator);
+            Vector3 loc = transform.position;
+            GamePlayStatic.PlayAudioAtLoc(DeadthAudio,loc,1);
         }
-        Debug.Log($"Take dame{amt} {gameObject.name}");
    }
     public void Reward(Reward reward){
         health=Mathf.Clamp(health+reward.healthReward,0,maxhealth);

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 727007746258726418}
   - component: {fileID: 1697081961580211088}
   - component: {fileID: 4485048691369228286}
+  - component: {fileID: 5400919025527144655}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -130,6 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxhealth: 100
+  HitAudio: {fileID: 0}
+  DeadthAudio: {fileID: 0}
+  volume: 0
 --- !u!114 &4315126872017472358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +196,8 @@ MonoBehaviour:
   - {fileID: 4315126872017472358}
   - {fileID: 1591587518936740432}
   - {fileID: 6619458474292209237}
+  DetectionAudio: {fileID: 0}
+  volume: 1
 --- !u!114 &1591587518936740432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +278,18 @@ MonoBehaviour:
   BlinkSpeed: 22
   EmissionColorPropertyName: _Addition
   healthComponents: {fileID: 40689807145481812}
+--- !u!114 &5400919025527144655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624683822107896174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea725ad1891ad741bb68b5b1b784572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7153394057357037069
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Joystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerU
 {
     public delegate void OnStickInputValueUpdate(Vector2 inputVal);
     public delegate void OnstickTaped();
-
+    
     public event OnStickInputValueUpdate onStickValueUpdate;
     public event OnstickTaped onstickTaped;
     [SerializeField] private RectTransform ThumbStickTrans;
