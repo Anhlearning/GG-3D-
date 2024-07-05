@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
    }
    private  void levelFinished(){
      if(WinMenu ==null){
-          Debug.LogError("WinMenu = null");
+          // Debug.LogError("WinMenu = null");
           return ;
      }
      SetCurrentActiveGrp(WinMenu);
